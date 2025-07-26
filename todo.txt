@@ -1,0 +1,33 @@
+Simulation referencement SEO:
+Framework:Laravel
+Postgresql
+
+I-COTE AFFICHAGE:
+.creation formulaire saisies:
+	-Titre
+	-Contenus
+	-date
+	  ->Boutton valider
+.creation pages list-articles.php:
+	.Affichage des toutes les Listes articles (sous forme liens qui redirige vers le url specifique avec suivent le normes SEO (Title,h1)).
+
+.Creation pages infos-articles.php:
+	.Affichage des tous les informations de l'article  cliquer par l'utilisateur.
+
+II-COTE BASE:
+.Creation tables articles (id,nom_article,titre,contenus,date,url).
+.Creation 10 des donnees de test.
+
+	
+III-COTE METIER:
+.Creation model Articles (id,nom_article,titre,contenus,date,url):
+	-Implementation fonction generateUrl ():
+	   .retourne formats url(id_titre_h1__date).
+	-Implementation methode insert_articles avec l'appelle de la fonction generateUrl() avant d'inserer dans la table articles.
+	-Implementation methode qui recupere les listes des articles dans la table articles.
+.Creation controlleurs ArticleController :
+	-creation methode insert :
+		.Appelle methode insert_article dans le model Articles 
+	-Creation methode getAllArticle():
+		.Retourne listes articles 
+		.Redirection vers la pages (list-articles.php) toutes en passent les donnees des articles recuperer.
